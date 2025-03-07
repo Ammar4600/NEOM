@@ -7,7 +7,16 @@ import ProjRouter from "./Router/projRouter.js";
 const app = express();
 
 // Allow CORS for all origins
-app.use(cors({ origin: "*", credentials: true }));
+app.use(cors({
+    origin: "*",  // Allow requests from any origin
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
+    credentials: true
+}));
+
+app.options("*", cors());  // Allow preflight requests for all routes
+
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

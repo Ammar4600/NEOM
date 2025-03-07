@@ -13,7 +13,7 @@ function Login() {
   const nevigate = useNavigate();
    const { setUser } = useContext(UserContext);
 
-
+axios.defaults.withCredentials= true;
   async function SubmitHandler(e) {
     e.preventDefault();
 

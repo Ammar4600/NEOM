@@ -12,7 +12,7 @@ function Register() {
   const nevigate = useNavigate()
    const { setUser } = useContext(UserContext);
 
-
+axios.defaults.withCredentials= true;
   async function SubmitHandler(e) {
     e.preventDefault();
    const response = await axios.post(`${baseUrl}/register`, {name, email, password})

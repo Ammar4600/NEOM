@@ -40,7 +40,8 @@ function Home() {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
+         { withCredentials: true}
         );
         setprojects(response.data); // Handle the data here
       } catch (error) {

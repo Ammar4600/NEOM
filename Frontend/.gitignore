@@ -1,0 +1,86 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules and dependencies
+node_modules/
+bower_components/
+
+# Build and output directories
+dist/
+dist-ssr/
+.out/
+.next/
+.vercel/
+.netlify/
+build/
+
+# Local environment files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+
+# Temporary and system files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+*.swo
+*.bak
+
+# Editor settings
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Dependency directories for package managers
+.pnp
+.pnp.js
+
+# Debugging files
+coverage/
+.nyc_output/
+*.lcov
+
+# Logs and profiling
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# TypeScript & Babel
+*.tsbuildinfo
+.babelrc
+.eslintrc.js
+.prettierrc
+.jest.config.js
+
+# Jest & Testing
+jest.config.js
+jest.setup.js
+test-results/
+
+# Mac system files
+.DS_Store
+
+# Linux & Windows system files
+*.swp
+*.swo
+*.swn
+*.bak
+*.orig
+Thumbs.db
+ehthumbs.db

@@ -15,7 +15,15 @@ const registerUser = async (req , res) => {
         const {name , email , password} = req.body;
         const user = await CreateUser({name , email , password});
         const token = await user.generateToken();
-        res.cookie('token' , token);
+       res.cookie('token', token, {
+    httpOnly: true,   // Prevents access from JavaScript
+    secure: true,     // Only send on HTTPS
+    sameSite: 'None', // Needed for cross-origin requests
+    domain: '.yourdomain.com',  // Replace with actual domain
+    path: '/',        
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
+});
+
         res.json({ user, token });
         
     } catch (error) {
@@ -48,7 +56,15 @@ const loginUser = async (req , res) => {
         
         if(isMatch){
             const token = await user.generateToken();
-            res.cookie('token' , token);
+           res.cookie('token', token, {
+    httpOnly: true,   // Prevents access from JavaScript
+    secure: true,     // Only send on HTTPS
+    sameSite: 'None', // Needed for cross-origin requests
+    domain: '.yourdomain.com',  // Replace with actual domain
+    path: '/',        
+    maxAge: 24 * 60 * 60 * 1000 // 1 day
+});
+
             res.json({ user, token });
         }
         else{
@@ -79,8 +95,15 @@ const loginUser = async (req , res) => {
 
         // Store the token in Redis to invalidate it
         await redisClient.set(token, 'invalid', 'EX', 86400);
-
-        res.clearCookie('token');
+res.clearCookie('token', { 
+    httpOnly: true,
+    secure: true,
+    sameSite: 'None',
+    domain: '.yourdomain.com',
+    path: '/'
+});
+          
+        
         res.status(200).json({ msg: 'Logged out successfully' });
 
       } catch (error) {

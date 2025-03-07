@@ -26,7 +26,7 @@ app.options("https://devinproject.vercel.app/login", cors());  // Allow prefligh
 
 const io = new Server(server, {
     cors: {
-        origin: "https://devinproject.vercel.app",
+        origin: "https://devinproject.vercel.app", // Allow frontend origin
         methods: ["GET", "POST"],
         credentials: true
     }

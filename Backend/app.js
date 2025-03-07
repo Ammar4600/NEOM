@@ -8,13 +8,14 @@ const app = express();
 
 // Allow CORS for all origins
 app.use(cors({
-    origin: "https://devinproject.vercel.app/login",  // Allow requests from any origin
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
+    origin: "https://devinproject.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
 
-app.options("https://devinproject.vercel.app/login", cors());  // Allow preflight requests for all routes
+// Allow preflight requests for all routes
+app.options("*", cors()); // Allow preflight requests for all routes
 
 
 app.use(express.json());

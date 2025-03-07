@@ -14,7 +14,7 @@ const port = process.env.PORT;
 const server = http.createServer(app)
 
 app.use(cors({
-    origin: "*",  // Allow requests from any origin
+    origin: "https://devinproject.vercel.app",  // Allow requests from any origin
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
     credentials: true
@@ -26,7 +26,7 @@ app.options("*", cors());  // Allow preflight requests for all routes
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: "https://devinproject.vercel.app",
         methods: ["GET", "POST"],
         credentials: true
     }

@@ -23,9 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 
 connectDB()
 
-app.get('/' , (req, res)=>{
-  res.json('Hello WOrld');
-})
 
 app.use('/user' , userRoutes)
 app.use('/project', ProjRouter )

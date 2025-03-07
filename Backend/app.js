@@ -25,6 +25,6 @@ connectDB()
 
 
 app.use('/user' , userRoutes)
-app.use('/project', ProjRouter )
+app.use('/project', ProjRouter)
 
 export default app;

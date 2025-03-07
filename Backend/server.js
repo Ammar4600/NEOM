@@ -20,7 +20,7 @@ app.use(cors({
     credentials: true
 }));
 
-app.options("*", cors());  // Allow preflight requests for all routes
+app.options("https://devinproject.vercel.app/login", cors());  // Allow preflight requests for all routes
 
 
 

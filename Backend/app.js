@@ -36,6 +36,9 @@ app.get('/health', (req, res) => {
     res.status(200).json({ status: "UP", message: "Backend is running!" });
 });
 
+app.get('/', (req, res) => {
+    res.status(200).json({ message: "Hello!" });
+});
 
 app.use('/user' , userRoutes)
 app.use('/project', ProjRouter )

@@ -15,7 +15,7 @@ const server = http.createServer(app)
 
 
 app.use(cors({
-    origin: "http://localhost:5173", // Allows all origins
+    origin: "https://devinproject.vercel.app", // Allows all origins
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
@@ -23,7 +23,7 @@ app.use(cors({
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://devinproject.vercel.app",
         methods: ["GET", "POST"], // Explicitly define allowed methods
         credentials: true // Allow cookies and authentication headers
     }

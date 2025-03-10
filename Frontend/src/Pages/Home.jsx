@@ -25,7 +25,14 @@ function Home() {
 
   async function HandleSubmit(e) {
     e.preventDefault();
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL_Project}/create`, { name }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL_Project}/create`,
+       { name }, 
+       { headers:
+         { Authorization: `Bearer ${localStorage.getItem('token')}` 
+        },
+        withCredentials: true,
+      });
+
     console.log(response.data);
     setmodal(false)/*  */
   }
@@ -40,6 +47,7 @@ function Home() {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
+            withCredentials: true,
           }
         );
         setprojects(response.data); // Handle the data here

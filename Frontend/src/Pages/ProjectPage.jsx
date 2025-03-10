@@ -23,11 +23,13 @@ function ProjectPage() {
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BASE_URL_Project}/getProjectById/${id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL_Project}/getProjectById/${id}`, 
+          {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        }, { withCredentials: true })
+          withCredentials: true,
+        })
 
         setProjectDetail(response.data.project);
         setusers(response.data.users);
@@ -46,8 +48,8 @@ function ProjectPage() {
         const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/getallusers`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            withCredentials: true,
           },
+          withCredentials: true,
         })
         setallusers(response.data);
 
@@ -84,8 +86,8 @@ function ProjectPage() {
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            withCredentials: true,
           },
+          withCredentials: true,
         })
       alert('Users added successfully');
       setaddedUsers([]);
@@ -114,8 +116,8 @@ function ProjectPage() {
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
-              withCredentials: true,
             },
+            withCredentials: true,
 
           },
         )

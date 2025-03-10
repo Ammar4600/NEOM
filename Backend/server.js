@@ -13,6 +13,14 @@ const port = process.env.PORT;
 
 const server = http.createServer(app)
 
+
+app.use(cors({
+    origin: "http://localhost:5173", // Allows all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+}));
+
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:5173",
@@ -21,12 +29,6 @@ const io = new Server(server, {
     }
 });
 
-
-app.use(cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"],
-    credentials: true // Ensures cookies and authorization headers are sent
-}));
 
 
 //   A middleware to check if user is authriozed to connect with Socket.io or not 

@@ -15,7 +15,9 @@ function Register() {
 
   async function SubmitHandler(e) {
     e.preventDefault();
-   const response = await axios.post(`${baseUrl}/register`, {name, email, password})
+   const response = await axios.post(`${baseUrl}/register`, {name, email, password}
+    
+   )
     if(response.status === 200){
       setUser(response.data.user)
 
